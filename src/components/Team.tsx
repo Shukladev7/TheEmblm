@@ -26,7 +26,7 @@ const Team: React.FC = () => {
       name: 'Milap Mehta',
       role: 'Chief Advisor',
       tagline: 'The mind that anchors with wisdom and experience',
-      image: 'h1.jpg',
+      image: 'h3.jpeg',
     }
   ];
 
@@ -108,7 +108,7 @@ const Team: React.FC = () => {
             </motion.div>
           ))}
         </div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
