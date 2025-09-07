@@ -324,9 +324,31 @@ const FloatingWeDesign = () => {
                   <p className="text-gray-600 mb-4 sm:mb-5 text-center text-sm sm:text-base font-light leading-relaxed">
                     Ready to transform your vision into reality?<br/> Let&apos;s discuss how we can help bring your project to life.
                   </p>
-                  <button className="w-full bg-[#1C1C1C] text-white py-3 sm:py-4 px-6 rounded-md font-medium hover:bg-black transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#1C1C1C] focus:ring-offset-2 text-sm sm:text-base shadow-md hover:shadow-lg">
-                    Start Your Project
-                  </button>
+                  
+                  <button
+  className="
+    relative group w-full py-3 sm:py-4 px-6 rounded-md font-medium 
+    text-white text-sm sm:text-base shadow-md overflow-hidden
+    bg-[#1C1C1C] 
+    focus:outline-none focus:ring-2 focus:ring-[#1C1C1C] focus:ring-offset-2
+  "
+>
+  {/* Button text */}
+  <span className="relative z-10">Start Your Project</span>
+
+  {/* Expanding red circle */}
+  <span
+    className="
+      absolute top-1/2 left-1/2 
+      w-10 h-10 bg-[#C62828] rounded-full 
+      -translate-x-1/2 -translate-y-1/2 
+      scale-0 group-hover:scale-[15] 
+      transition-transform duration-500 ease-out
+    "
+  />
+</button>
+
+
                 </div>
               </div>
             </motion.div>
