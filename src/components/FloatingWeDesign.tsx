@@ -1,23 +1,27 @@
-
-
 // File: FloatingWeDesign.jsx
 import React, { useEffect, useRef, useState, useLayoutEffect, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CATEGORIES } from "../data/categories"; // make sure path matches your project
 
-// Data
+// Data (using paths with spaces between words)
 const combos = [
-  { design: "Brand Strategy", audiences: ["Consumer Brands", "Startups", "Technology", "Everyone"] },
-  { design: "Digital", audiences: ["Startups", "Culture", "Education"] },
-  { design: "Packaging", audiences: ["Consumer Brands", "Culture", "Healthcare"] },
-  { design: "Editorial", audiences: ["Education", "Public Sector", "Everyone"] },
-  { design: "Environmental", audiences: ["Public Sector", "Technology"] },
-  { design: "Campaigns", audiences: ["Healthcare", "Consumer Brands"] },
-  { design: "Exhibitions", audiences: ["Technology", "Culture", "Startups"] },
-  { design: "Industrial/Product Design", audiences: ["Everyone", "Startups", "Consumer Brands"] },
-];
+  { design: "BrandIdentity", audiences: ["ConsumerLifestyle", "CorporateBusiness", "Technology"] },
+  { design: "CreativeDesign", audiences: ["CorporateBusiness", "SocialImpact", "Education"] },
+  { design: "DigitalPresence", audiences: ["ConsumerLifestyle", "SocialImpact", "Healthcare"] },
+  { design: "SocialMedia", audiences: ["Education", "Government"] },
+  { design: "Marketing", audiences: ["Government", "Technology"] },
+  { design: "Multimedia", audiences: ["Healthcare", "ConsumerLifestyle"] },
+  { design: "Consulting", audiences: ["Technology", "SocialImpact", "CorporateBusiness"] },
+  { design: "ExtendedExperiences", audiences: ["CorporateBusiness", "ConsumerLifestyle"] },
+].map(combo => ({
+  design: combo.design.replace(/([A-Z])/g, " $1").trim(),       // e.g. BrandIdentity → Brand Identity
+  audiences: combo.audiences.map(aud => aud.replace(/([A-Z])/g, " $1").trim()) // e.g. ConsumerLifestyle → Consumer Lifestyle
+}));
 
-// Hook to measure element size
+
+// Hook to measure element size (unchanged)
 function useSize(ref: React.RefObject<HTMLElement>) {
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
 
@@ -39,7 +43,7 @@ function useSize(ref: React.RefObject<HTMLElement>) {
   return size;
 }
 
-// Cross cursor SVG
+// Cross cursor SVG (unchanged)
 const crossCursor =
   "url('data:image/svg+xml;base64," +
   btoa(
@@ -55,7 +59,6 @@ const crossCursor =
     </svg>`
   ) +
   "') 8 8, auto";
-
 
 
 const FloatingWeDesign = () => {
@@ -107,11 +110,20 @@ const FloatingWeDesign = () => {
   const uniqueAudiences = React.useMemo(() => [...new Set(combos.flatMap((c) => c.audiences))], []);
 
 
+  const makeSlug = (s: string) =>
+    s.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "").trim();
+
+  // helper: if item exists in CATEGORIES, link to its exact static path (e.g. /ConsumerBrands)
+  const getPathForItem = (item: string) => {
+    const found = CATEGORIES.find((c) => c.name.toLowerCase() === item.toLowerCase() || c.path.toLowerCase() === item.toLowerCase());
+    if (found) return `/${found.path}`;
+    // fallback to dynamic route
+    return `/${makeSlug(item)}`;
+  };
 
   return (
     <>
       {/* Floating button */}
-      {/* Lower the floating button z-index so footer (z-50) can cover it */}
       <div className="fixed inset-0 z-10 flex justify-center pointer-events-none px-4">
         <motion.div
           className="pointer-events-auto absolute"
@@ -126,7 +138,7 @@ const FloatingWeDesign = () => {
             <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-1 sm:gap-2 text-center sm:text-left">
               {/* Design line */}
               <div className="flex items-baseline gap-2">
-                <span className="text-base sm:text-lg font-light">We design</span>
+                <span className="text-base sm:text-lg font-light">We do</span>
                 <div className="flex items-center gap-1 relative">
                   <motion.div
                     className="relative overflow-hidden"
@@ -142,7 +154,8 @@ const FloatingWeDesign = () => {
                         exit={{ y: -22, opacity: 0 }}
                         transition={{ duration: 0.75, ease: "easeInOut" }}
                         className="text-base sm:text-lg md:text-xl font-medium text-[#C62828] whitespace-nowrap"
-                      >{currentDesign}
+                      >
+                        {currentDesign}
                       </motion.span>
                     </AnimatePresence>
                     <span
@@ -203,7 +216,6 @@ const FloatingWeDesign = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            // raise modal z so it remains above the footer which is z-50
             className="fixed inset-0 flex items-center justify-center p-4"
             style={{ zIndex: 99999 }}
           >
@@ -250,105 +262,114 @@ const FloatingWeDesign = () => {
                 stiffness: 200,
                 damping: 20,
               }}
-              // Reduced max width on desktop to make dialog less wide
               className="relative bg-white rounded-md shadow-2xl max-w-2xl md:max-w-xl w-full mx-4 p-6 sm:p-8 border border-gray-200 max-h-[90vh] overflow-y-auto mt-8 sm:mt-0"
               onClick={handleDialogClick}
               role="dialog"
               aria-modal="true"
               aria-labelledby="dialog-title"
             >
-
               <div className="text-center">
-
                 {/* Tabs */}
                 <div className="flex flex-col sm:flex-row justify-center items-center mb-4 sm:mb-6 gap-2 sm:gap-3">
                   <div className="flex items-center gap-2 sm:gap-3">
-                    <span className="text-base sm:text-lg font-light text-gray-700">We Design</span>
-                    
+                    <span className="text-base sm:text-lg font-light text-gray-700">We do</span>
+
                     <button
                       onClick={() => setActiveTab("design")}
                       className={`flex items-center gap-1 px-3 py-2 rounded-md transition-all duration-200 ${
-                        activeTab === "design" 
-                          ? "bg-gray-100 text-[#C62828] font-medium" 
+                        activeTab === "design"
+                          ? "bg-gray-100 text-[#C62828] font-medium"
                           : "text-gray-500 hover:text-gray-700 font-light"
                       }`}
                     >
                       <span className="text-sm sm:text-base">Everything</span>
-                      <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${
-                        activeTab === "design" ? "rotate-180" : ""
-                      }`} />
+                      <ChevronDown
+                        className={`w-3 h-3 transition-transform duration-200 ${
+                          activeTab === "design" ? "rotate-180" : ""
+                        }`}
+                      />
                     </button>
                   </div>
-                  
+
                   <div className="flex items-center gap-2 sm:gap-3">
                     <span className="text-base sm:text-lg font-light text-gray-700">for</span>
-                    
+
                     <button
                       onClick={() => setActiveTab("audience")}
                       className={`flex items-center gap-1 px-3 py-2 rounded-md transition-all duration-200 ${
-                        activeTab === "audience" 
-                          ? "bg-gray-100 text-[#C62828] font-medium" 
+                        activeTab === "audience"
+                          ? "bg-gray-100 text-[#C62828] font-medium"
                           : "text-gray-500 hover:text-gray-700 font-light"
                       }`}
                     >
                       <span className="text-sm sm:text-base">Everyone</span>
-                      <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${
-                        activeTab === "audience" ? "rotate-180" : ""
-                      }`} />
+                      <ChevronDown
+                        className={`w-3 h-3 transition-transform duration-200 ${
+                          activeTab === "audience" ? "rotate-180" : ""
+                        }`}
+                      />
                     </button>
                   </div>
                 </div>
 
                 {/* Organic Flow Layout */}
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-4 sm:mt-6 max-w-4xl mx-auto">
-                  {(activeTab === "design" ? uniqueDesigns : uniqueAudiences).map((item, index) => (
-                    <motion.div
-                      key={item}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.08, duration: 0.4, type: "spring", stiffness: 120 }}
-                      className="bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 cursor-pointer group whitespace-nowrap flex-shrink-0"
-                      style={{
-                        minWidth: 'fit-content'
-                      }}
-                    >
-                      <span className="group-hover:text-[#C62828] transition-colors duration-200">
-                        {item}
-                      </span>
-                    </motion.div>
-                  ))}
+                  {(activeTab === "design" ? uniqueDesigns : uniqueAudiences).map((item, index) => {
+                    const to = getPathForItem(item);
+                    return (
+                      <motion.div
+                        key={item}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.08, duration: 0.4, type: "spring", stiffness: 120 }}
+                        className="bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-200 cursor-pointer group whitespace-nowrap flex-shrink-0"
+                        style={{
+                          minWidth: "fit-content",
+                        }}
+                      >
+                        {/* Link inside motion div so we keep the animated wrapper */}
+                        <Link
+                          to={to}
+                          onClick={() => setIsDialogOpen(false)}
+                          className="inline-block"
+                        >
+                          <span className="group-hover:text-[#C62828] transition-colors duration-200">
+                            {item}
+                          </span>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
                 </div>
 
                 {/* Footer */}
                 <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200">
                   <p className="text-gray-600 mb-4 sm:mb-5 text-center text-sm sm:text-base font-light leading-relaxed">
-                    Ready to transform your vision into reality?<br/> Let&apos;s discuss how we can help bring your project to life.
+                    Ready to transform your vision into reality?
+                    <br />
+                    Let&apos;s discuss how we can help bring your project to life.
                   </p>
-                  
+
                   <button
-  className="
-    relative group w-full py-3 sm:py-4 px-6 rounded-md font-medium 
-    text-white text-sm sm:text-base shadow-md overflow-hidden
-    bg-[#1C1C1C] 
-    focus:outline-none focus:ring-2 focus:ring-[#1C1C1C] focus:ring-offset-2
-  "
->
-  {/* Button text */}
-  <span className="relative z-10">Start Your Project</span>
+                    className="
+                      relative group w-full py-3 sm:py-4 px-6 rounded-md font-medium 
+                      text-white text-sm sm:text-base shadow-md overflow-hidden
+                      bg-[#1C1C1C] 
+                      focus:outline-none focus:ring-2 focus:ring-[#1C1C1C] focus:ring-offset-2
+                    "
+                  >
+                    <span className="relative z-10">Start Your Project</span>
 
-  {/* Expanding red circle */}
-  <span
-    className="
-      absolute top-1/2 left-1/2 
-      w-10 h-10 bg-[#C62828] rounded-full 
-      -translate-x-1/2 -translate-y-1/2 
-      scale-0 group-hover:scale-[15] 
-      transition-transform duration-500 ease-out
-    "
-  />
-</button>
-
-
+                    <span
+                      className="
+                        absolute top-1/2 left-1/2 
+                        w-10 h-10 bg-[#C62828] rounded-full 
+                        -translate-x-1/2 -translate-y-1/2 
+                        scale-0 group-hover:scale-[15] 
+                        transition-transform duration-500 ease-out
+                      "
+                    />
+                  </button>
                 </div>
               </div>
             </motion.div>

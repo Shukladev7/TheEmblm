@@ -40,11 +40,11 @@ const Footer = () => {
           <div>
             <h3 className="text-[#FFF9F2] font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><Link to="/work?category=brand-identity" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Brand Identity</Link></li>
-              <li><Link to="/work?category=creative-design" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Creative Design</Link></li>
-              <li><Link to="/work?category=digital" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Digital</Link></li>
-              <li><Link to="/work?category=marketing" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Marketing</Link></li>
-              <li><Link to="/work?category=strategy" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Strategy</Link></li>
+              <li><Link onClick={() => window.scrollTo(0, 0)} to="/BrandIdentity" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Brand Identity</Link></li>
+              <li><Link onClick={() => window.scrollTo(0, 0)} to="/CreativeDesign" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Creative Design</Link></li>
+              <li><Link onClick={() => window.scrollTo(0, 0)} to="/DigitalPresence" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Digital</Link></li>
+              <li><Link onClick={() => window.scrollTo(0, 0)} to="/Marketing" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Marketing</Link></li>
+              <li><Link onClick={() => window.scrollTo(0, 0)} to="/Consulting" className="text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200">Strategy</Link></li>
             </ul>
           </div>
 
@@ -77,8 +77,8 @@ const Footer = () => {
 
       {/* Big Heading (Pentagram style) */}
       <div className="text-center py-12">
-        <h1 className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-serif font-bold tracking-tight">
-          THE EMBLM
+        <h1 className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-serif font-bold tracking-wider">
+          The Emblm
         </h1>
       </div>
 

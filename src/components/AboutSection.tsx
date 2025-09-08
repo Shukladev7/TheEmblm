@@ -66,13 +66,13 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-4xl lg:text-5xl font-light text-[#1C1C1C] mb-8 leading-tight">
-              Every brand has its <em>empty chair</em>
+              Every brand has its <em>EMPTY CHAIR</em>
             </h2>
 
             <div className="space-y-6 text-lg text-[#1C1C1C] leading-relaxed">
               <p>
-                Every brand has its <em className="decoration-[#C62828] underline decoration-2 underline-offset-2">empty chair</em> — the space it leaves in people's minds when it's not in the room. 
-                At <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">The Emblm</strong>, we design for that space.
+                Every brand has its <em className="decoration-[#C62828] underline decoration-2 underline-offset-2">EMPTY CHAIR</em> — the space it leaves in people's minds when it's not in the room. 
+                At <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">The Emblm</strong>, We do for that space.
               </p>
 
               <p>
