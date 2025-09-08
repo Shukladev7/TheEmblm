@@ -69,28 +69,29 @@ const AboutSection = () => {
               Every brand has its <em>EMPTY CHAIR</em>
             </h2>
 
-            <div className="space-y-6 text-lg text-[#1C1C1C] leading-relaxed">
-              <p>
-                Every brand has its <em className="decoration-[#C62828] underline decoration-2 underline-offset-2">EMPTY CHAIR</em> — the space it leaves in people's minds when it's not in the room. 
-                At <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">The Emblm</strong>, We do for that space.
-              </p>
+<div className="space-y-6 text-lg text-[#1C1C1C] leading-relaxed text-center">
+  <p>
+    Every brand has its <em className="decoration-[#C62828] underline decoration-2 underline-offset-2">EMPTY CHAIR</em> — the space it leaves in people's minds when it's not in the room. 
+    At <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">The Emblm</strong>, We do for that space.
+  </p>
 
-              <p>
-                We blend branding with marketing to craft <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">identities that stand out, stories that move mountains, 
-                and strategies that turn audiences into communities</strong>. For us, every brand is a masterpiece — 
-                because no two are ever the same.
-              </p>
+  <p>
+    We blend branding with marketing to craft <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">identities that stand out, stories that move mountains, 
+    and strategies that turn audiences into communities</strong>. For us, every brand is a masterpiece — 
+    because no two are ever the same.
+  </p>
 
-              <p>
-                The mark we carry isn't drawn by chance. It is built on the <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">geometry of life itself</strong> — 
-                the Fibonacci series, the Gomti Chakra, and the Shaligram. These aren't just symbols, they are 
-                signatures of eternity.
-              </p>
+  <p>
+    The mark we carry isn't drawn by chance. It is built on the <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">geometry of life itself</strong> — 
+    the Fibonacci series, the Gomti Chakra, and the Shaligram. These aren't just symbols, they are 
+    signatures of eternity.
+  </p>
 
-              <p className="text-[#C62828] font-medium">
-                The same way, every emblem we shape is designed to last beyond trends, carrying its own <span className="decoration-[#C62828] underline decoration-2 underline-offset-2">infinite pattern</span>.
-              </p>
-            </div>
+  <p className="text-[#C62828] font-medium">
+    The same way, every emblem we shape is designed to last beyond trends, carrying its own <span className="decoration-[#C62828] underline decoration-2 underline-offset-2">infinite pattern</span>.
+  </p>
+</div>
+
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
