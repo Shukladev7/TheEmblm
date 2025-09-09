@@ -8,7 +8,8 @@ import ThoughtHub from "./pages/ThoughtHub";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/cursor";
-
+import BlogPage from "./pages/BlogPage";
+import Admin from "./pages/Admin";
 import CategoryPage from "./pages/CategoryPage";
 import { CATEGORIES } from "./data/categories";
 
@@ -25,6 +26,8 @@ const App: React.FC = (): JSX.Element => {
           <Route path="/work" element={<Work />} />
           <Route path="/thought-hub" element={<ThoughtHub />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/thought-hub/:id" element={<BlogPage />} />
+          <Route path="/admin" element={<Admin />} />
 
           {/* Static category routes */}
           {CATEGORIES.map((c) => (

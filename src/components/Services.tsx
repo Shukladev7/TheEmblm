@@ -5,31 +5,17 @@ import { Palette, Monitor, Smartphone, Megaphone, Video, Brain, Settings, Plus, 
 const Services = () => {
   const [activeService, setActiveService] = useState<string | null>(null);
 
-const imageMap: Record<string, string> = {
-  // Represents branding through a mood board with logos, color palettes, and brand aesthetics.
-  brand: 'https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=1200&q=80',
+  const imageMap: Record<string, string> = {
+    brand: 'https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=1200&q=80',
+    creative: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
+    digital: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=80',
+    social: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&q=80',
+    marketing: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    multimedia: 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1200&q=80',
+    strategy: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=1200&q=80',
+    extended: 'https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80'
+  };
 
-  // REPLACED: A team collaborating with a glowing lightbulb graphic, symbolizing creative ideas and teamwork.
-  creative: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
-
-  // Hands on a laptop with code/data overlays, directly representing digital work and technology.
-  digital: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=80',
-
-  // A collection of popular social media app icons, clearly communicating the "social" theme.
-  social: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&q=80',
-
-  // An analytics dashboard with charts and graphs, representing the data-driven nature of modern marketing.
-  marketing: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-
-  // REPLACED: A creator's desk with multiple monitors, headphones, and a microphone, suggesting audio/video production.
-  multimedia: 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1200&q=80',
-
-  // REPLACED: A classic top-down view of a chess game in progress, a strong metaphor for strategy.
-  strategy: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=1200&q=80',
-
-  // An abstract network of connected nodes, visualizing concepts like extension, networks, and interconnected systems.
-  extended: 'https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80'
-};
   const services = [
     {
       id: 'brand',
@@ -107,83 +93,90 @@ const imageMap: Record<string, string> = {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl lg:text-6xl font-light text-[#1C1C1C] mb-6">
-            What We Create
-          </h2>
+          <h2 className="text-5xl lg:text-6xl font-light text-[#1C1C1C] mb-6">What We Create</h2>
           <p className="text-lg text-[#B0A8A2] max-w-3xl mx-auto">
-            Eight core disciplines that work in harmony to build brands 
-            that don't just exist, but command attention.
+            Eight core disciplines that work in harmony to build brands that don't just exist, but command attention.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-{services.map((service, index) => {
-  const IconComponent = service.icon;
-  const isActive = activeService === service.id;
+          {services.map((service, index) => {
+            const IconComponent = service.icon as any;
+            const isActive = activeService === service.id;
 
-  // alternate colors based on index
-  const iconColor = index % 2 === 0 ? 'text-white' : 'text-red-500';
-  const textColor = index % 2 === 0 ? 'text-white' : 'text-black';
+            // alternate colors based on index
+            const iconColor = index % 2 === 0 ? 'text-white' : 'text-red-500';
+            const textColor = index % 2 === 0 ? 'text-white' : 'text-black';
 
-  return (
-    <motion.div
-      key={service.id}
-      style={{
-        backgroundImage: `url(${imageMap[service.id]})`,
-      }}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className={`relative bg-cover bg-center p-8 cursor-pointer shadow-lg transition-all duration-300 ${
-        isActive ? 'lg:col-span-2 lg:row-span-2' : 'hover:scale-105'
-      }`}
-      onClick={() => setActiveService(isActive ? null : service.id)}
-    >
-      {/* Translucent Overlay */}
-      <div
-        className={`absolute inset-0 ${
-          service.bg === 'bg-[#FFF9F2]' ? 'bg-white/70' : 'bg-black/60'
-        }`}
-      />
+            // split details string into bullet points
+            const detailList = service.details
+              .split(',')
+              .map((s) => s.trim())
+              .filter(Boolean);
 
-      {/* Content */}
-      <div className="flex flex-col h-full relative z-10">
-        <IconComponent className={`h-8 w-8 mb-4 ${iconColor}`} />
-        <h3 className={`text-2xl font-light mb-3 ${textColor}`}>{service.title}</h3>
-        <p className={`text-xs mb-4 opacity-90 ${textColor}`}>{service.description}</p>
+            // separator color that contrasts the overlay
+            const separatorClass = service.bg === 'bg-[#FFF9F2]' ? 'bg-black/10' : 'bg-white/30';
 
-        <AnimatePresence>
-          {isActive && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="mt-4"
-            >
-              <div className="h-px mb-4 opacity-30 bg-white" />
-              <p className={`text-sm leading-relaxed opacity-80 ${textColor}`}>
-                {service.details}
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            return (
+              <motion.div
+                key={service.id}
+                style={{ backgroundImage: `url(${imageMap[service.id]})` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative bg-cover bg-center p-8 cursor-pointer shadow-lg transition-all duration-300 ${
+                  isActive ? 'lg:col-span-2 lg:row-span-2' : 'hover:scale-105'
+                }`}
+                onClick={() => setActiveService(isActive ? null : service.id)}
+              >
+                {/* Translucent Overlay */}
+                <div
+                  className={`absolute inset-0 ${
+                    service.bg === 'bg-[#FFF9F2]' ? 'bg-white/70' : 'bg-black/60'
+                  }`}
+                />
 
-<div className="mt-auto pt-4">
-  <motion.div
-    animate={{ rotate: isActive ? 45 : 0 }}
-    transition={{ duration: 0.3 }}
-    className={`w-10 h-10 flex items-center justify-center rounded-full ${iconColor} cursor-pointer`}
-  >
-    <Plus className="text-2xl" />
-  </motion.div>
-</div>
-      </div>
-    </motion.div>
-  );
-})}
+                {/* Content */}
+                <div className="flex flex-col h-full relative z-10">
+                  <IconComponent className={`h-8 w-8 mb-4 ${iconColor}`} />
+                  <h3 className={`text-2xl font-light mb-3 ${textColor}`}>{service.title}</h3>
+                  <p className={`text-xs mb-4 opacity-90 ${textColor}`}>{service.description}</p>
 
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="mt-4"
+                      >
+                        <div className={`h-px mb-4 opacity-30 ${separatorClass}`} />
+
+                        {/* Render details as bullet points */}
+                        <ul className={`list-disc ml-5 space-y-2 text-sm leading-relaxed opacity-80 ${textColor}`}>
+                          {detailList.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <div className="mt-auto pt-4">
+                    <motion.div
+                      animate={{ rotate: isActive ? 45 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className={`w-10 h-10 flex items-center justify-center rounded-full ${iconColor} cursor-pointer`}
+                    >
+                      <Plus className="text-2xl" />
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

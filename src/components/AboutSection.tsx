@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
+import RotatingLogo from "./RotatingLogo";
 const logoVariants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1 },
@@ -19,45 +19,10 @@ const AboutSection = () => {
     // IMPORTANT: overflow-x-hidden prevents layout jumps caused by rotating/absolute children
     <section className="py-24 bg-[#FFF9F2] overflow-x-hidden" ref={ref}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 lg:gap-32 items-center">
           {/* Logo Animation */}
-          <motion.div
-            variants={logoVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            transition={{ duration: 0.8 }}
-            className="relative"
-            aria-hidden
-          >
-            {/* Keep the rotating shapes inside an overflow-hidden box so they never cause horizontal scroll */}
-            <div className="w-80 h-80 mx-auto relative overflow-hidden transform-gpu">
-              {/* Decorative rotating line */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                style={{ willChange: "transform" }}
-                className="absolute inset-0 flex items-start justify-center pointer-events-none"
-              >
-                <div className="w-1 h-40 bg-[#C62828] origin-bottom" />
-              </motion.div>
 
-              {/* Rotating ring */}
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                style={{ willChange: "transform" }}
-                className="absolute inset-8 flex items-center justify-center pointer-events-none"
-              >
-                <div className="w-full h-full border-2 border-[#E57373] rounded-full box-border" />
-              </motion.div>
-
-              {/* Center mark */}
-              <div className="absolute inset-1/4 bg-[#1C1C1C] rounded-full flex items-center justify-center">
-                <span className="text-[#FFF9F2] text-4xl font-light tracking-widest rounded-full"><img src="/logo.png" alt='The Emblm' className='h-14 w-14' /></span>
-              </div>
-            </div>
-          </motion.div>
-
+        <RotatingLogo/>
           {/* About Text */}
           <motion.div
             variants={textVariants}
@@ -66,12 +31,12 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-4xl lg:text-5xl font-light text-[#1C1C1C] mb-8 leading-tight">
-              Every brand has its <em>EMPTY CHAIR</em>
+              Every brand has its <em>empty chair</em>
             </h2>
 
-<div className="space-y-6 text-lg text-[#1C1C1C] leading-relaxed text-center">
+<div className="space-y-6 text-lg text-[#1C1C1C] leading-relaxed text-justify">
   <p>
-    Every brand has its <em className="decoration-[#C62828] underline decoration-2 underline-offset-2">EMPTY CHAIR</em> — the space it leaves in people's minds when it's not in the room. 
+    Every brand has its <em className="decoration-[#C62828] underline decoration-2 underline-offset-2">empty chair</em> — the space it leaves in people's minds when it's not in the room. 
     At <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">The Emblm</strong>, We do for that space.
   </p>
 
