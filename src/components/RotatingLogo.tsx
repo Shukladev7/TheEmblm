@@ -32,7 +32,7 @@ const RotatingLogo = () => {
         {/* Rotating spiral image container */}
         <div className="relative w-60 h-60 overflow-hidden">
           <img
-            src="/logo1.png"
+            src="https://res.cloudinary.com/ducp6qhg5/image/upload/v1757491800/logo1_ujxwev.png"
             alt="Rotating Spiral"
             className={`absolute inset-0 w-full h-full object-contain transition-transform duration-1000 ease-in-out ${
               isInView ? 'animate-spin' : ''
@@ -51,7 +51,7 @@ const RotatingLogo = () => {
           }`}
         >
           <img
-            src="/logo2.png"
+            src="https://res.cloudinary.com/ducp6qhg5/image/upload/v1757491800/logo2_ipxtke.png"
             alt="The Emblm"
             className="w-80 h-auto object-contain"
           />

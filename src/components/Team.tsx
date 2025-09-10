@@ -10,7 +10,7 @@ const Team: React.FC = () => {
       name: 'Shravya VJ',
       role: 'Founder & Brand Strategist',
       tagline: 'The mind that architects identities the world can’t ignore',
-      image: 'h1.jpg',
+      image: 'https://res.cloudinary.com/ducp6qhg5/image/upload/v1757491800/h1_jnhyq2.jpg',
   
     },
     {
@@ -18,7 +18,7 @@ const Team: React.FC = () => {
       name: 'Om Mehta',
       role: 'Business Generalist',
       tagline: 'The mind that wears every hat and still keeps focus',
-      image: 'h2.jpg',
+      image: 'https://res.cloudinary.com/ducp6qhg5/image/upload/v1757491801/h2_xvz2q7.jpg',
 
     },
     {
@@ -26,7 +26,7 @@ const Team: React.FC = () => {
       name: 'Milap Mehta',
       role: 'Chief Advisor',
       tagline: 'The mind that anchors with wisdom and experience',
-      image: 'h3.jpeg',
+      image: 'https://res.cloudinary.com/ducp6qhg5/image/upload/v1757491800/h3_gkueum.jpg',
     }
   ];
 

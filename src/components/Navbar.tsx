@@ -53,7 +53,7 @@ const Navbar = () => {
             className="flex items-center space-x-2 text-[#1C1C1C] font-light text-lg sm:text-xl md:text-2xl tracking-wide"
           >
             <img
-              src="/logo.png"
+              src="https://res.cloudinary.com/ducp6qhg5/image/upload/v1757491810/logo_fsayur.png"
               alt="The Emblm"
               className="h-12 sm:h-16 md:h-20 w-auto object-contain"
             />
