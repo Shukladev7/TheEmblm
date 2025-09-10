@@ -71,8 +71,9 @@ const Team: React.FC = () => {
     <img
       src={member.image}
       alt={`${member.name} portrait`}
-      className="w-full h-[400px] object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+      className="w-full h-[400px] object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
     />
+
   </motion.div>
 </div>
 

@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from 'lucide-react'
 const Footer = () => {
   return (
     // make footer positioned and create its own stacking context so z-50 works
-    <footer className="relative isolate bg-[#1C1C1C] text-[#FFF9F2] z-50">
+    <footer className="relative isolate bg-[#FFF9F2] text-[#1C1C1C] z-50">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
@@ -23,7 +23,7 @@ const Footer = () => {
               Positioning brands to lead through strategic thinking, 
               creative excellence, and purposeful execution.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 text-[#B0A8A2]">
               <a href="#" className="p-3 bg-[#FFF9F2]/10 rounded-full hover:bg-[#C62828] transition-colors duration-200">
                 <Instagram className="h-5 w-5" />
               </a>
@@ -53,11 +53,11 @@ const Footer = () => {
             <h3 className="text-[#FFF9F2] font-semibold mb-6">Get in Touch</h3>
             <div className="space-y-4">
               <a 
-                href="mailto:shravy.vj@theemblm.com" 
+                href="mailto:theemblm@gmail.com" 
                 className="flex items-center text-[#B0A8A2] hover:text-[#E57373] transition-colors duration-200"
               >
                 <Mail className="h-5 w-5 mr-3" />
-                shravy.vj@theemblm.com
+                theemblm@gmail.com
               </a>
               <a 
                 href="tel:+919380824977" 
@@ -68,7 +68,7 @@ const Footer = () => {
               </a>
               <div className="flex items-start text-[#B0A8A2]">
                 <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />
-                <span>Indore, India<br /></span>
+                <span>414, Fourth Floor, Vraj Valencia, Opp C K Patel Farm, Near Astha Homes Sola, Ahmedabad-380060, Gujarat, India<br /></span>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ const Footer = () => {
       </div>
 
       {/* Big Heading (Pentagram style) */}
-      <div className="text-center py-12">
+      <div className="text-[#B0A8A2] text-center py-12">
         <h1 className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-serif font-bold tracking-wider">
           The Emblm
         </h1>

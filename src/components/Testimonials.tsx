@@ -8,34 +8,26 @@ const Testimonials = () => {
     {
       id: 1,
       quote:
-        "The Emblm transformed our brand identity completely. Their strategic approach and attention to detail resulted in a 300% increase in brand recognition within just six months.",
-      author: "Sarah Chen",
-      position: "CEO, TechFlow Innovations",
-      company: "Fortune 500 Technology Company"
+        "Fresh perspectives, great ideas and on-time execution is what The Emblm stands for.",
+      author: "Mindcraft Equipment",
+      // position: "CEO, TechFlow Innovations",
+      // company: "Mindcraft Equipment"
     },
     {
       id: 2,
       quote:
-        "Working with The Emblm was like having a team of brand strategists, designers, and marketing experts all rolled into one. They don't just create; they architect experiences.",
-      author: "Michael Rodriguez",
-      position: "Marketing Director, GreenVibe",
-      company: "Sustainable Lifestyle Brand"
+        "A complete end to end solution right from branding strategies to lead conversion is what The Emblm promises and stands on.",
+      author: "Nifty Project Management and Operations",
+      // position: "Marketing Director, GreenVibe",
+      // company: "Sustainable Lifestyle Brand"
     },
     {
       id: 3,
       quote:
         "The results speak for themselves - our digital presence is now unrecognizable from where we started. The Emblm understood our vision and brought it to life in ways we never imagined.",
       author: "Dr. Amanda Foster",
-      position: "Founder, MedConnect",
-      company: "Healthcare Technology Startup"
-    },
-    {
-      id: 4,
-      quote:
-        "Their strategic thinking goes beyond traditional branding. The Emblm helped us discover not just who we are, but who we aspire to be as a company.",
-      author: "James Park",
-      position: "Creative Director, Artisan Collective",
-      company: "Design & Architecture Firm"
+      // position: "Founder, MedConnect",
+      // company: "Healthcare Technology Startup"
     }
   ];
 

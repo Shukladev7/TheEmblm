@@ -86,16 +86,6 @@ const Navbar = () => {
               Contact
             </Link>
 
-            <button className="text-[#1C1C1C] hover:text-[#C62828] transition-colors duration-200">
-              <Search className="h-5 w-5" />
-            </button>
-
-            <Link
-              to="/archive"
-              className="text-[#1C1C1C] hover:text-[#C62828] transition-colors duration-200 text-lg"
-            >
-              Archive
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}

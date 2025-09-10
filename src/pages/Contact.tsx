@@ -1,28 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, MessageSquare } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    project: '',
-    message: ''
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
-
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -36,7 +16,7 @@ const Contact = () => {
           >
             Let's Create
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,15 +42,15 @@ const Contact = () => {
               <h2 className="text-4xl font-light text-[#1C1C1C] mb-8">
                 Get in Touch
               </h2>
-              
+
               <p className="text-lg text-[#B0A8A2] mb-12 leading-relaxed">
-                Whether you're looking to transform your brand identity, launch a new campaign, 
+                Whether you're looking to transform your brand identity, launch a new campaign,
                 or explore strategic partnerships, we're here to help bring your vision to life.
               </p>
 
               <div className="space-y-8">
-                <a 
-                  href="mailto:shravy.vj@theemblm.com"
+                <a
+                  href="mailto:theemblm@gmail.com"
                   className="flex items-center group"
                 >
                   <div className="p-4 bg-[#C62828] text-[#FFF9F2] rounded-full mr-6 group-hover:bg-[#1C1C1C] transition-colors duration-200">
@@ -79,12 +59,12 @@ const Contact = () => {
                   <div>
                     <h3 className="text-[#1C1C1C] font-medium mb-1">Email Us</h3>
                     <p className="text-[#B0A8A2] group-hover:text-[#C62828] transition-colors duration-200">
-                      shravy.vj@theemblm.com
+                      theemblm@gmail.com
                     </p>
                   </div>
                 </a>
 
-                <a 
+                <a
                   href="https://wa.me/919380824977"
                   className="flex items-center group"
                 >
@@ -114,7 +94,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Contact Form (FormSubmit) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -126,7 +106,16 @@ const Contact = () => {
                 Work with Us
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                action="https://formsubmit.co/theemblm@gmail.com"
+                method="POST"
+                className="space-y-6"
+              >
+                {/* Hidden fields */}
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="New Project Inquiry!" />
+                <input type="hidden" name="_template" value="table" />
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-[#1C1C1C] font-medium mb-2">
@@ -137,12 +126,10 @@ const Contact = () => {
                       id="name"
                       name="name"
                       required
-                      value={formData.name}
-                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-[#1C1C1C] font-medium mb-2">
                       Email *
@@ -152,8 +139,6 @@ const Contact = () => {
                       id="email"
                       name="email"
                       required
-                      value={formData.email}
-                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
                     />
                   </div>
@@ -167,8 +152,6 @@ const Contact = () => {
                     type="text"
                     id="company"
                     name="company"
-                    value={formData.company}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
                   />
                 </div>
@@ -180,8 +163,6 @@ const Contact = () => {
                   <select
                     id="project"
                     name="project"
-                    value={formData.project}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
                   >
                     <option value="">Select a service...</option>
@@ -204,8 +185,6 @@ const Contact = () => {
                     name="message"
                     required
                     rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
                     placeholder="Tell us about your project, goals, and timeline..."
                     className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200 resize-none"
                   />
@@ -221,6 +200,7 @@ const Contact = () => {
                   Send Message
                 </motion.button>
               </form>
+
             </motion.div>
           </div>
         </div>

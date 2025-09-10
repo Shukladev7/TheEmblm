@@ -23,7 +23,7 @@ export const CATEGORIES: Category[] = [
       "Visual identity systems",
       "Brand guidelines"
     ],
-    image: "https://images.unsplash.com/photo-1557862921-37829c790f19", // A team collaborating around a whiteboard, representing strategy and planning.
+    image: "https://res.cloudinary.com/ducp6qhg5/image/upload/v1757486418/brand_f9derd.png", // A team collaborating around a whiteboard, representing strategy and planning.
     details: [
       {
         title: "Core Services",

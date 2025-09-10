@@ -6,14 +6,14 @@ const Services = () => {
   const [activeService, setActiveService] = useState<string | null>(null);
 
   const imageMap: Record<string, string> = {
-    brand: 'https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=1200&q=80',
+    brand: 'https://res.cloudinary.com/ducp6qhg5/image/upload/v1757486418/brand_f9derd.png',
     creative: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
     digital: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=80',
     social: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&q=80',
     marketing: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
     multimedia: 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1200&q=80',
     strategy: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=1200&q=80',
-    extended: 'https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1200&q=80'
+    extended: 'https://res.cloudinary.com/ducp6qhg5/image/upload/v1757487696/Gemini_Generated_Image_mylsyimylsyimyls_fkuv9w.png'
   };
 
   const services = [
@@ -22,7 +22,7 @@ const Services = () => {
       title: 'Brand Identity',
       icon: Palette,
       description: 'Complete visual identity systems that capture your essence and speak to your audience.',
-      details: 'Logo design, brand guidelines, color palettes, typography, visual systems, brand positioning, brand architecture, and comprehensive style guides.',
+      details: 'Logo design, Brand guidelines, Color palettes, Typography, Visual systems, Brand positioning, Brand architecture, Comprehensive style guides.',
       bg: 'bg-[#B0A8A2]'
     },
     {
@@ -30,7 +30,7 @@ const Services = () => {
       title: 'Creative Design',
       icon: Lightbulb,
       description: 'Compelling creative solutions across all mediums and touchpoints.',
-      details: 'Print design, packaging, environmental graphics, exhibition design, publication design, and custom creative solutions tailored to your needs.',
+      details: 'Print design, Packaging, Environmental graphics, Exhibition design, Publication design, Custom creative solutions tailored to your needs.',
       bg: 'bg-[#FFF9F2]'
     },
     {
@@ -38,7 +38,7 @@ const Services = () => {
       title: 'Digital',
       icon: Monitor,
       description: 'Digital experiences that engage, convert, and delight your users.',
-      details: 'Website design, UX/UI design, e-commerce solutions, digital platforms, mobile apps, and interactive experiences.',
+      details: 'Website design, UX/UI design, E-commerce solutions, Digital platforms, Mobile apps, Interactive experiences.',
       bg: 'bg-[#B0A8A2]'
     },
     {
@@ -46,7 +46,7 @@ const Services = () => {
       title: 'Social',
       icon: Smartphone,
       description: 'Social strategies that build communities and drive engagement.',
-      details: 'Social media strategy, content creation, community management, influencer partnerships, and social advertising campaigns.',
+      details: 'Social media strategy, Content creation, Community management, Influencer partnerships, Social advertising campaigns.',
       bg: 'bg-[#FFF9F2]'
     },
     {
@@ -54,7 +54,7 @@ const Services = () => {
       title: 'Marketing',
       icon: Megaphone,
       description: 'Integrated marketing campaigns that deliver measurable results.',
-      details: 'Campaign strategy, content marketing, digital advertising, email marketing, SEO/SEM, and performance analytics.',
+      details: 'Campaign strategy, Content marketing, Digital advertising, Email marketing, SEO/SEM, Performance analytics.',
       bg: 'bg-[#B0A8A2]'
     },
     {
@@ -62,7 +62,7 @@ const Services = () => {
       title: 'Multimedia',
       icon: Video,
       description: 'Video and audio content that tells your story with impact.',
-      details: 'Video production, motion graphics, animation, podcasts, audio branding, and interactive multimedia experiences.',
+      details: 'Video production, Motion graphics, Animation, Podcasts, Audio branding, Interactive multimedia experiences.',
       bg: 'bg-[#FFF9F2]'
     },
     {
@@ -70,7 +70,7 @@ const Services = () => {
       title: 'Strategy',
       icon: Brain,
       description: 'Strategic thinking that aligns your brand with business objectives.',
-      details: 'Brand strategy, market research, competitive analysis, positioning, messaging framework, and strategic planning.',
+      details: 'Brand strategy, Market research, Competitive analysis, Positioning, Messaging framework, Strategic planning.',
       bg: 'bg-[#B0A8A2]'
     },
     {
@@ -78,7 +78,7 @@ const Services = () => {
       title: 'Extended',
       icon: Settings,
       description: 'Specialized services that extend your brand into new territories.',
-      details: 'Innovation consulting, workshop facilitation, brand training, ongoing support, and custom solutions for unique challenges.',
+      details: 'Innovation consulting, Workshop facilitation, Brand training, Ongoing support, Custom solutions for unique challenges.',
       bg: 'bg-[#FFF9F2]'
     }
   ];
