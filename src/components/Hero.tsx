@@ -7,12 +7,14 @@ const Hero = () => {
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("https://res.cloudinary.com/ducp6qhg5/image/upload/v1757491800/bg1_ojfzry.png")',
+          backgroundImage:
+            'url("https://res.cloudinary.com/ducp6qhg5/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill/bg1_ojfzry.png")',
         }}
       >
+
         {/* Dark overlay for better text readability */}
         {/* <div className="absolute inset-0 bg-black bg-opacity-40"></div> */}
       </div>

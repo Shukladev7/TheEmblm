@@ -77,7 +77,7 @@ const Navbar = () => {
               to="/thought-hub"
               className="text-[#1C1C1C] hover:text-[#C62828] transition-colors duration-200 text-lg"
             >
-              News
+              Blogs
             </Link>
             <Link
               to="/contact"
@@ -129,7 +129,7 @@ const Navbar = () => {
                 className="block text-[#1C1C1C] hover:text-[#C62828] transition-colors duration-200 text-lg"
                 onClick={() => setIsOpen(false)}
               >
-                News
+                Blogs
               </Link>
               <Link
                 to="/contact"

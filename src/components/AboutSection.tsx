@@ -37,7 +37,7 @@ const AboutSection = () => {
 <div className="space-y-6 text-lg text-[#1C1C1C] leading-relaxed text-justify">
   <p>
     Every brand has its <em className="decoration-[#C62828] underline decoration-2 underline-offset-2">empty chair</em> — the space it leaves in people's minds when it's not in the room. 
-    At <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">The Emblm</strong>, We do for that space.
+    At <strong className="decoration-[#C62828] underline decoration-2 underline-offset-2">The Emblm</strong>, We design for that space.
   </p>
 
   <p>

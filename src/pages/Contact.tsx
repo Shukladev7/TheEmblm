@@ -106,100 +106,103 @@ const Contact = () => {
                 Work with Us
               </h3>
 
-              <form
-                action="https://formsubmit.co/theemblm@gmail.com"
-                method="POST"
-                className="space-y-6"
-              >
-                {/* Hidden fields */}
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="New Project Inquiry!" />
-                <input type="hidden" name="_template" value="table" />
+<form 
+  action="https://formsubmit.co/theemblm@gmail.com" 
+  method="POST" 
+  className="space-y-6"
+>
+  {/* Hidden fields */}
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_subject" value="New Project Inquiry!" />
+  <input type="hidden" name="_template" value="table" />
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-[#1C1C1C] font-medium mb-2">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
-                    />
-                  </div>
+  {/* ✅ Prevents verification for every user */}
+  <input type="hidden" name="_from" value="Form Inquiry <theemblm@gmail.com>" />
 
-                  <div>
-                    <label htmlFor="email" className="block text-[#1C1C1C] font-medium mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
-                    />
-                  </div>
-                </div>
+  <div className="grid md:grid-cols-2 gap-6">
+    <div>
+      <label htmlFor="name" className="block text-[#1C1C1C] font-medium mb-2">
+        Name *
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
+      />
+    </div>
+    
+    <div>
+      <label htmlFor="email" className="block text-[#1C1C1C] font-medium mb-2">
+        Email *
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
+      />
+    </div>
+  </div>
 
-                <div>
-                  <label htmlFor="company" className="block text-[#1C1C1C] font-medium mb-2">
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
-                  />
-                </div>
+  <div>
+    <label htmlFor="company" className="block text-[#1C1C1C] font-medium mb-2">
+      Company
+    </label>
+    <input
+      type="text"
+      id="company"
+      name="company"
+      className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
+    />
+  </div>
 
-                <div>
-                  <label htmlFor="project" className="block text-[#1C1C1C] font-medium mb-2">
-                    Project Type
-                  </label>
-                  <select
-                    id="project"
-                    name="project"
-                    className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
-                  >
-                    <option value="">Select a service...</option>
-                    <option value="brand-identity">Brand Identity</option>
-                    <option value="creative-design">Creative Design</option>
-                    <option value="digital">Digital</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="strategy">Strategy</option>
-                    <option value="multimedia">Multimedia</option>
-                    <option value="extended">Extended Services</option>
-                  </select>
-                </div>
+  <div>
+    <label htmlFor="project" className="block text-[#1C1C1C] font-medium mb-2">
+      Project Type
+    </label>
+    <select
+      id="project"
+      name="project"
+      className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200"
+    >
+      <option value="">Select a service...</option>
+      <option value="brand-identity">Brand Identity</option>
+      <option value="creative-design">Creative Design</option>
+      <option value="digital">Digital</option>
+      <option value="marketing">Marketing</option>
+      <option value="strategy">Strategy</option>
+      <option value="multimedia">Multimedia</option>
+      <option value="extended">Extended Services</option>
+    </select>
+  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-[#1C1C1C] font-medium mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    placeholder="Tell us about your project, goals, and timeline..."
-                    className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200 resize-none"
-                  />
-                </div>
+  <div>
+    <label htmlFor="message" className="block text-[#1C1C1C] font-medium mb-2">
+      Message *
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      required
+      rows={5}
+      placeholder="Tell us about your project, goals, and timeline..."
+      className="w-full px-4 py-3 border border-[#B0A8A2]/30 rounded-lg focus:ring-2 focus:ring-[#C62828] focus:border-transparent transition-all duration-200 resize-none"
+    />
+  </div>
 
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-[#C62828] text-[#FFF9F2] py-4 rounded-lg font-medium hover:bg-[#1C1C1C] transition-colors duration-200 flex items-center justify-center"
-                >
-                  <Send className="h-5 w-5 mr-2" />
-                  Send Message
-                </motion.button>
-              </form>
+  <motion.button
+    type="submit"
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    className="w-full bg-[#C62828] text-[#FFF9F2] py-4 rounded-lg font-medium hover:bg-[#1C1C1C] transition-colors duration-200 flex items-center justify-center"
+  >
+    <Send className="h-5 w-5 mr-2" />
+    Send Message
+  </motion.button>
+</form>
 
             </motion.div>
           </div>
